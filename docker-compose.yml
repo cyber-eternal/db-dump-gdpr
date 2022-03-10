@@ -1,0 +1,17 @@
+version: "3.0"
+services:
+  mysql-db:
+    image: mariadb:10.4
+    restart: "no"
+    volumes:
+      - dbdump-mysql:/var/lib/mysql
+    ports:
+      - 3306:3306
+    environment:
+      MYSQL_RANDOM_ROOT_PASSWORD: "yes"
+      MYSQL_DATABASE: "dbdump"
+      MYSQL_USER: "guest"
+      MYSQL_PASSWORD: "guest"
+
+volumes:
+  dbdump-mysql:
